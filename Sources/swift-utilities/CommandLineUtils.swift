@@ -20,20 +20,20 @@ public func replaceProcess(program: String, arguments: [String]) {
 }
 
 
-public func shell(arguments: [String] = []) -> (stringResult: String? , code:Int32) {
-    let task = Process()
-    task.launchPath = "/usr/bin/env" 
-    task.arguments = arguments
-    
-    let pipe = Pipe()
-    task.standardOutput = pipe
-    task.standardError = pipe
-    task.launch()
-    let data = pipe.fileHandleForReading.readDataToEndOfFile()
-    let output = String(data: data, encoding: .utf8)
-    task.waitUntilExit()
-    return (output, task.terminationStatus)
-}
+//public func shell(arguments: [String] = []) -> (stringResult: String? , code:Int32) {
+//    let task = Process()
+//    task.launchPath = "/usr/bin/env" 
+//    task.arguments = arguments
+//    
+//    let pipe = Pipe()
+//    task.standardOutput = pipe
+//    task.standardError = pipe
+//    task.launch()
+//    let data = pipe.fileHandleForReading.readDataToEndOfFile()
+//    let output = String(data: data, encoding: .utf8)
+//    task.waitUntilExit()
+//    return (output, task.terminationStatus)
+//}
 
 
 public func getProgram(commandLineArgs: [String]) -> String {
